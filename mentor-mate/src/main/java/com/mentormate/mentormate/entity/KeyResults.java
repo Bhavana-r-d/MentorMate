@@ -14,12 +14,12 @@ public class KeyResults {
 	private long keyResultId;
 	@ManyToOne
 	@JoinColumn(name = "okr_id", nullable = false)
-	private Okrs okr;
+	private OKRs okr;
 	private String keyResult;
 	public KeyResults() {
 		// TODO Auto-generated constructor stub
 	}
-	public KeyResults(long keyResultId, Okrs okr, String keyResult) {
+	public KeyResults(long keyResultId, OKRs okr, String keyResult) {
 		this.keyResultId = keyResultId;
 		this.okr = okr;
 		this.keyResult = keyResult;
@@ -30,10 +30,10 @@ public class KeyResults {
 	public void setKeyResultId(long keyResultId) {
 		this.keyResultId = keyResultId;
 	}
-	public Okrs getOkr() {
+	public OKRs getOkr() {
 		return okr;
 	}
-	public void setOkr(Okrs okr) {
+	public void setOkr(OKRs okr) {
 		this.okr = okr;
 	}
 	public String getKeyResult() {

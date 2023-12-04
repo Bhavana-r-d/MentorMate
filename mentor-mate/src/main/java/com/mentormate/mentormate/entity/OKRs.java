@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "okrs")
-public class Okrs {
+public class OKRs {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long okrId;
@@ -18,9 +18,9 @@ public class Okrs {
 	@JoinColumn(name = "mentee_id")
 	private Mentees menteeId;
 	private String objective;
-	public Okrs() {
+	public OKRs() {
 	}
-	public Okrs(long okrId, Mentees menteeId, String objective) {
+	public OKRs(long okrId, Mentees menteeId, String objective) {
 		this.okrId = okrId;
 		this.menteeId = menteeId;
 		this.objective = objective;
