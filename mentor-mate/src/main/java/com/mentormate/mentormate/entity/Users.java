@@ -17,21 +17,32 @@ public class Users {
     private String name;
     private String password;
     private String role;
+    private String designation;
 	public Users() {
 	}
-	public Users(Long userId, String email, String name, String password, String role) {
+	
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	public Users(long userId, String email, String name, String password, String role, String designation) {
+		super();
 		this.userId = userId;
 		this.email = email;
 		this.name = name;
 		this.password = password;
 		this.role = role;
+		this.designation = designation;
 	}
-	public Long getUserId() {
-		return userId;
-	}
-	public void setUserId(Long userId) {
-		this.userId = userId;
-	}
+
 	public String getEmail() {
 		return email;
 	}

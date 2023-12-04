@@ -18,4 +18,30 @@ public class Okrs {
 	@JoinColumn(name = "mentee_id")
 	private Mentees menteeId;
 	private String objective;
+	public Okrs() {
+	}
+	public Okrs(long okrId, Mentees menteeId, String objective) {
+		this.okrId = okrId;
+		this.menteeId = menteeId;
+		this.objective = objective;
+	}
+	public long getOkrId() {
+		return okrId;
+	}
+	public void setOkrId(long okrId) {
+		this.okrId = okrId;
+	}
+	public Mentees getMenteeId() {
+		return menteeId;
+	}
+	public void setMenteeId(Mentees menteeId) {
+		this.menteeId = menteeId;
+	}
+	public String getObjective() {
+		return objective;
+	}
+	public void setObjective(String objective) {
+		this.objective = objective;
+	}
+	
 }
