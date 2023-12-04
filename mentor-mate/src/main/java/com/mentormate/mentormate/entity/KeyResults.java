@@ -16,5 +16,30 @@ public class KeyResults {
 	@JoinColumn(name = "okr_id", nullable = false)
 	private Okrs okr;
 	private String keyResult;
-	private String progress;
+	public KeyResults() {
+		// TODO Auto-generated constructor stub
+	}
+	public KeyResults(long keyResultId, Okrs okr, String keyResult) {
+		this.keyResultId = keyResultId;
+		this.okr = okr;
+		this.keyResult = keyResult;
+	}
+	public long getKeyResultId() {
+		return keyResultId;
+	}
+	public void setKeyResultId(long keyResultId) {
+		this.keyResultId = keyResultId;
+	}
+	public Okrs getOkr() {
+		return okr;
+	}
+	public void setOkr(Okrs okr) {
+		this.okr = okr;
+	}
+	public String getKeyResult() {
+		return keyResult;
+	}
+	public void setKeyResult(String keyResult) {
+		this.keyResult = keyResult;
+	}
 }
