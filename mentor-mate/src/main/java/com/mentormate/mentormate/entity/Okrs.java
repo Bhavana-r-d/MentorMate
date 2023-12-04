@@ -13,9 +13,9 @@ import jakarta.persistence.Table;
 public class Okrs {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long okrId;
+	private long okrId;
 	@ManyToOne
 	@JoinColumn(name = "mentee_id")
-	private Users mentee;
+	private Mentees menteeId;
 	private String objective;
 }

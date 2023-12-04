@@ -11,15 +11,15 @@ import jakarta.persistence.ManyToOne;
 public class Ratings {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ratingId;
+    private long ratingId;
 
     @ManyToOne
-    @JoinColumn(name = "okr_id", nullable = false)
-    private Okrs okr;
+    @JoinColumn(name = "key_results", nullable = false)
+    private KeyResults keyResults;
 
     @ManyToOne
     @JoinColumn(name = "mentor_id", nullable = false)
-    private Users mentor;
-    private Integer rating;
+    private Mentors mentor;
+    private int rating;
     private String comment;
 }

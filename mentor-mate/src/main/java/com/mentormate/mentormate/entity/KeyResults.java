@@ -11,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 public class KeyResults {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long keyResultId;
+	private long keyResultId;
 	@ManyToOne
 	@JoinColumn(name = "okr_id", nullable = false)
 	private Okrs okr;
