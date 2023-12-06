@@ -1,6 +1,8 @@
-package com.mentormate.mentormate.entity;
+package com.mentormate.mentormate.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,31 +13,36 @@ import jakarta.persistence.ManyToOne;
 public class KeyResults {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long keyResultId;
-	@ManyToOne
-	@JoinColumn(name = "okr_id", nullable = false)
-	private OKRs okr;
+	private long id;
+	@ManyToOne(targetEntity = OKRs.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
+	@JoinColumn(name = "okr_id",referencedColumnName = "id")
+	private OKRs okrId;
 	private String keyResult;
 	public KeyResults() {
 		// TODO Auto-generated constructor stub
 	}
-	public KeyResults(long keyResultId, OKRs okr, String keyResult) {
-		this.keyResultId = keyResultId;
-		this.okr = okr;
+	
+	public KeyResults( OKRs okrId, String keyResult) {
+		this.okrId = okrId;
 		this.keyResult = keyResult;
 	}
-	public long getKeyResultId() {
-		return keyResultId;
+
+	public long getId() {
+		return id;
 	}
-	public void setKeyResultId(long keyResultId) {
-		this.keyResultId = keyResultId;
+
+	public void setId(long id) {
+		this.id = id;
 	}
-	public OKRs getOkr() {
-		return okr;
+
+	public OKRs getOkrId() {
+		return okrId;
 	}
-	public void setOkr(OKRs okr) {
-		this.okr = okr;
+
+	public void setOkrId(OKRs okrId) {
+		this.okrId = okrId;
 	}
+
 	public String getKeyResult() {
 		return keyResult;
 	}

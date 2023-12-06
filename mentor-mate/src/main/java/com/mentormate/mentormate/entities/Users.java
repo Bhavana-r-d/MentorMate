@@ -1,4 +1,4 @@
-package com.mentormate.mentormate.entity;
+package com.mentormate.mentormate.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,7 +12,7 @@ public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userId;
+    private long id;
     private String email;
     private String name;
     private String password;
@@ -30,12 +30,10 @@ public class Users {
 	}
 
 	public void setUserId(long userId) {
-		this.userId = userId;
+		this.id = userId;
 	}
 
-	public Users(long userId, String email, String name, String password, String role, String designation) {
-		super();
-		this.userId = userId;
+	public Users( String email, String name, String password, String role, String designation) {
 		this.email = email;
 		this.name = name;
 		this.password = password;

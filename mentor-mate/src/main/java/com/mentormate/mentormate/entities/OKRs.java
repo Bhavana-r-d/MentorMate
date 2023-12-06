@@ -1,6 +1,8 @@
-package com.mentormate.mentormate.entity;
+package com.mentormate.mentormate.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,35 +15,44 @@ import jakarta.persistence.Table;
 public class OKRs {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long okrId;
-	@ManyToOne
-	@JoinColumn(name = "mentee_id")
-	private Mentees menteeId;
+	private long id;
+	
+	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
+	@JoinColumn(name = "mentee_id",referencedColumnName = "id")
+	private Users menteeId;
 	private String objective;
 	public OKRs() {
 	}
-	public OKRs(long okrId, Mentees menteeId, String objective) {
-		this.okrId = okrId;
+
+	public OKRs(Users menteeId, String objective) {
 		this.menteeId = menteeId;
 		this.objective = objective;
 	}
-	public long getOkrId() {
-		return okrId;
+
+	public long getId() {
+		return id;
 	}
-	public void setOkrId(long okrId) {
-		this.okrId = okrId;
+
+	public void setId(long id) {
+		this.id = id;
 	}
-	public Mentees getMenteeId() {
+
+	public Users getMenteeId() {
 		return menteeId;
 	}
-	public void setMenteeId(Mentees menteeId) {
+
+	public void setMenteeId(Users menteeId) {
 		this.menteeId = menteeId;
 	}
+
 	public String getObjective() {
 		return objective;
 	}
+
 	public void setObjective(String objective) {
 		this.objective = objective;
 	}
+
+
 	
 }
