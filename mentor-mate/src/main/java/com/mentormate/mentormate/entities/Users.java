@@ -17,17 +17,22 @@ public class Users {
     private String firstName;
     private String lastName;
     private String password;
-    private String role;
     private String designation;
 	public Users() {
 	}
 	
-	public Users(String email, String firstName, String lastName, String password, String role, String designation) {
+	public Users(String email, String firstName, String lastName, String password, String designation) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
-		this.role = role;
+		this.designation = designation;
+	}
+
+	public Users(String email, String firstName, String lastName, String designation) {
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.designation = designation;
 	}
 
@@ -81,11 +86,6 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+
 
 }
