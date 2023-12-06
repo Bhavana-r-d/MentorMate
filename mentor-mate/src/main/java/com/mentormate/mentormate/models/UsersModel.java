@@ -7,6 +7,7 @@ public class UsersModel {
     private String password;
     private String role;
     private String designation;
+    
 	public UsersModel() {
 	}
 	
