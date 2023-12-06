@@ -19,4 +19,30 @@ public class Comments {
 	@JoinColumn(name = "key_results_id",referencedColumnName = "id")
 	private KeyResults keyResultsId;
 	private String comments;
+	public Comments() {
+		// TODO Auto-generated constructor stub
+	}
+	public Comments(KeyResults keyResultsId, String comments) {
+		this.keyResultsId = keyResultsId;
+		this.comments = comments;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public KeyResults getKeyResultsId() {
+		return keyResultsId;
+	}
+	public void setKeyResultsId(KeyResults keyResultsId) {
+		this.keyResultsId = keyResultsId;
+	}
+	public String getComments() {
+		return comments;
+	}
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+	
 }
