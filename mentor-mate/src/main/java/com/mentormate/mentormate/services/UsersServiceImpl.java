@@ -20,7 +20,6 @@ public class UsersServiceImpl implements UsersService {
 	
 	@PostConstruct
 	public void populateTable() {
-		//email,firstName,lastName,password,role,designation
 		usersRepo.save(new Users("john.doe@example.com", "John", "Doe", "tech lead"));
 		usersRepo.save(new Users("jane.smith@example.com", "Jane", "Smith","associate software developer"));
 		usersRepo.save(new Users("bob.lee@example.com", "Bob", "Lee", "senior software developer"));

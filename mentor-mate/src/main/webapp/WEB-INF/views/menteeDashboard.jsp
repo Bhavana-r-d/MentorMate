@@ -12,34 +12,25 @@
 
 	<%
 	UsersModel users = (UsersModel) request.getAttribute("mentee");
+	request.setAttribute("u", users);
 	%>
 
 	<table>
 		<tr>
 			<th>Id</th>
-			<th>Item</th>
-			<th>ItemCount</th>
-			<th>Description</th>
-			<th>OrderDate</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Designation</th>
 		</tr>
 
-		<%
-		for (OrderModel o : orders) {
-			request.setAttribute("o", o);
-		%>
 		<tr>
-			<td>${o.id}</td>
-			<td>${o.item}</td>
-			<td>${o.itemCount}</td>
-			<td>${o.description}</td>
-			<td>${o.orderDate}</td>
-			<td><a href="delete?id=${o.id}">Delete</a> <a
-				href="edit?id=${o.id}">Edit</a></td>
+			<td>${u.id}</td>
+			<td>${u.firstName}</td>
+			<td>${u.lastName}</td>
+			<td>${u.email}</td>
+			<td>${u.designation}</td>
 		</tr>
-		<%
-		}
-		%>
-
 	</table>
 </body>
 </html>
