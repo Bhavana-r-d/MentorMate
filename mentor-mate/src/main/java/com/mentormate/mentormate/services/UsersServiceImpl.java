@@ -43,7 +43,7 @@ public class UsersServiceImpl implements UsersService {
 	
 	@Override
 	public List<Users> getAll(){
-		return null;
+		return usersRepo.findAll();
 	}
 }
 
