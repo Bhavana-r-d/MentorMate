@@ -16,7 +16,7 @@ public class Ratings {
 	private long id;
 
 	@ManyToOne(targetEntity = KeyResults.class, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "key_results_id",referencedColumnName = "id")
+	@JoinColumn(name = "keyResultsId",referencedColumnName = "id")
 	private KeyResults keyResultsId;
 	private int rating;
 	private String comment;

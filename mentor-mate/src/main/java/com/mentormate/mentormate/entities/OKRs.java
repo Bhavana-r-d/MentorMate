@@ -18,7 +18,7 @@ public class OKRs {
 	private long id;
 	
 	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "mentee_id",referencedColumnName = "id")
+	@JoinColumn(name = "menteeId",referencedColumnName = "id")
 	private Users menteeId;
 	private String objective;
 	public OKRs() {

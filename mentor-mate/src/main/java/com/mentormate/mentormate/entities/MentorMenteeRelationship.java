@@ -8,19 +8,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "mentorMenteeRelationship")
 public class MentorMenteeRelationship {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "mentor_id",referencedColumnName = "id")
+	@JoinColumn(name = "mentorId",referencedColumnName = "id")
 	private Users mentorId;
 	
 	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "mentee_id",referencedColumnName = "id")
+	@JoinColumn(name = "menteeId",referencedColumnName = "id")
 	private Users menteeId;
 
 	public MentorMenteeRelationship() {

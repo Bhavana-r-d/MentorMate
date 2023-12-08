@@ -8,14 +8,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "keyResults")
 public class KeyResults {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@ManyToOne(targetEntity = OKRs.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "okr_id",referencedColumnName = "id")
+	@JoinColumn(name = "okrId",referencedColumnName = "id")
 	private OKRs okrId;
 	private String keyResult;
 	public KeyResults() {

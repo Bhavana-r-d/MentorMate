@@ -16,7 +16,7 @@ public class Roles {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id",referencedColumnName = "id")
+	@JoinColumn(name = "userId",referencedColumnName = "id")
 	private Users userId;
 	private String role;
 	public Roles() {
