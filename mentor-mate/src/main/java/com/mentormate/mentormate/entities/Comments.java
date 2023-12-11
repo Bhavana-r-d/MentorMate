@@ -16,14 +16,14 @@ public class Comments {
 	private long id;
 	
 	@ManyToOne(targetEntity = KeyResults.class, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "keyResultsId",referencedColumnName = "id")
-	private KeyResults keyResultsId;
+	@JoinColumn(name = "keyResults",referencedColumnName = "id")
+	private KeyResults keyResults;
 	private String comments;
 	public Comments() {
 		// TODO Auto-generated constructor stub
 	}
-	public Comments(KeyResults keyResultsId, String comments) {
-		this.keyResultsId = keyResultsId;
+	public Comments(KeyResults keyResults, String comments) {
+		this.keyResults = keyResults;
 		this.comments = comments;
 	}
 	public long getId() {
@@ -32,11 +32,11 @@ public class Comments {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public KeyResults getKeyResultsId() {
-		return keyResultsId;
+	public KeyResults getKeyResults() {
+		return keyResults;
 	}
-	public void setKeyResultsId(KeyResults keyResultsId) {
-		this.keyResultsId = keyResultsId;
+	public void setKeyResults(KeyResults keyResults) {
+		this.keyResults = keyResults;
 	}
 	public String getComments() {
 		return comments;

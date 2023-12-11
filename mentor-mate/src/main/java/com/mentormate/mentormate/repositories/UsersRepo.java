@@ -6,4 +6,5 @@ import com.mentormate.mentormate.entities.Users;
 
 public interface UsersRepo extends JpaRepository<Users, Long>{
 	
+	
 }

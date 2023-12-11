@@ -22,18 +22,16 @@
 	<p>Email: ${u.email}</p>
 	<p>Designation: ${u.designation}</p>
 <!-- list/table -->
-	<table border="1">
+	<ul>
 		<%
 		for (UsersModel mentee : listOfMentees) {
 			request.setAttribute("mentee", mentee);
 		%>
-		<tr>
-			<td>${mentee.firstName}</td>
-		</tr>
+		<li>${mentee.firstName}</li>
 		<%
 		}
 		%>
 		
-	</table>
+	</ul>
 </body>
 </html>

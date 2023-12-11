@@ -18,14 +18,14 @@ public class OKRs {
 	private long id;
 	
 	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "menteeId",referencedColumnName = "id")
-	private Users menteeId;
+	@JoinColumn(name = "mentee",referencedColumnName = "id")
+	private Users mentee;
 	private String objective;
 	public OKRs() {
 	}
 
-	public OKRs(Users menteeId, String objective) {
-		this.menteeId = menteeId;
+	public OKRs(Users mentee, String objective) {
+		this.mentee = mentee;
 		this.objective = objective;
 	}
 
@@ -37,12 +37,12 @@ public class OKRs {
 		this.id = id;
 	}
 
-	public Users getMenteeId() {
-		return menteeId;
+	public Users getMentee() {
+		return mentee;
 	}
 
-	public void setMenteeId(Users menteeId) {
-		this.menteeId = menteeId;
+	public void setMentee(Users menteeId) {
+		this.mentee = menteeId;
 	}
 
 	public String getObjective() {

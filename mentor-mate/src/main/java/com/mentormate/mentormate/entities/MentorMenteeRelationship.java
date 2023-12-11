@@ -18,25 +18,25 @@ public class MentorMenteeRelationship {
 	private long id;
 	
 	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "mentorId",referencedColumnName = "id")
-	private Users mentorId;
+	@JoinColumn(name = "mentor",referencedColumnName = "id")
+	private Users mentor;
 	
 	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "menteeId",referencedColumnName = "id")
-	private Users menteeId;
+	@JoinColumn(name = "mentee",referencedColumnName = "id")
+	private Users mentee;
 
 	public MentorMenteeRelationship() {
 	}
 
-	public MentorMenteeRelationship(long id, Users mentorId, Users menteeId) {
+	public MentorMenteeRelationship(long id, Users mentor, Users mentee) {
 		this.id = id;
-		this.mentorId = mentorId;
-		this.menteeId = menteeId;
+		this.mentor = mentor;
+		this.mentee = mentee;
 	}
 
-	public MentorMenteeRelationship(Users mentorId, Users menteeId) {
-		this.mentorId = mentorId;
-		this.menteeId = menteeId;
+	public MentorMenteeRelationship(Users mentor, Users mentee) {
+		this.mentor = mentor;
+		this.mentee = mentee;
 	}
 
 	public long getId() {
@@ -47,20 +47,20 @@ public class MentorMenteeRelationship {
 		this.id = id;
 	}
 
-	public Users getMentorId() {
-		return mentorId;
+	public Users getMentor() {
+		return mentor;
 	}
 
-	public void setMentorId(Users mentorId) {
-		this.mentorId = mentorId;
+	public void setMentor(Users mentor) {
+		this.mentor = mentor;
 	}
 
-	public Users getMenteeId() {
-		return menteeId;
+	public Users getMentee() {
+		return mentee;
 	}
 
-	public void setMenteeId(Users menteeId) {
-		this.menteeId = menteeId;
+	public void setMentee(Users mentee) {
+		this.mentee = mentee;
 	}
 	
 }

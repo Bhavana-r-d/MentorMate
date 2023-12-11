@@ -16,13 +16,13 @@ public class Roles {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "userId",referencedColumnName = "id")
-	private Users userId;
+	@JoinColumn(name = "user",referencedColumnName = "id")
+	private Users user;
 	private String role;
 	public Roles() {
 	}
-	public Roles(Users userId, String role) {
-		this.userId = userId;
+	public Roles(Users user, String role) {
+		this.user = user;
 		this.role = role;
 	}
 	public long getId() {
@@ -31,11 +31,11 @@ public class Roles {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Users getUserId() {
-		return userId;
+	public Users getUser() {
+		return user;
 	}
-	public void setUserId(Users userId) {
-		this.userId = userId;
+	public void setUser(Users user) {
+		this.user = user;
 	}
 	public String getRole() {
 		return role;

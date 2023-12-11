@@ -20,10 +20,6 @@ public class UsersModel {
 		this.designation = designation;
 	}
 
-	public void setUserId(long userId) {
-		this.id = userId;
-	}
-
 	public UsersModel( Users user) {
 		this.email = user.getEmail();
 		this.firstName = user.getFirstName();

@@ -17,15 +17,15 @@ public class KeyResults {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@ManyToOne(targetEntity = OKRs.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "okrId",referencedColumnName = "id")
-	private OKRs okrId;
+	@JoinColumn(name = "okr",referencedColumnName = "id")
+	private OKRs okr;
 	private String keyResult;
 	public KeyResults() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public KeyResults( OKRs okrId, String keyResult) {
-		this.okrId = okrId;
+	public KeyResults( OKRs okr, String keyResult) {
+		this.okr = okr;
 		this.keyResult = keyResult;
 	}
 
@@ -37,12 +37,12 @@ public class KeyResults {
 		this.id = id;
 	}
 
-	public OKRs getOkrId() {
-		return okrId;
+	public OKRs getOkr() {
+		return okr;
 	}
 
-	public void setOkrId(OKRs okrId) {
-		this.okrId = okrId;
+	public void setOkr(OKRs okr) {
+		this.okr = okr;
 	}
 
 	public String getKeyResult() {

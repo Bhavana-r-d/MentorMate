@@ -16,16 +16,16 @@ public class Ratings {
 	private long id;
 
 	@ManyToOne(targetEntity = KeyResults.class, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "keyResultsId",referencedColumnName = "id")
-	private KeyResults keyResultsId;
+	@JoinColumn(name = "keyResults",referencedColumnName = "id")
+	private KeyResults keyResults;
 	private int rating;
 	private String comment;
 
 	public Ratings() {
 	}
 
-	public Ratings(KeyResults keyResultsId, int rating, String comment) {
-		this.keyResultsId = keyResultsId;
+	public Ratings(KeyResults keyResults, int rating, String comment) {
+		this.keyResults = keyResults;
 		this.rating = rating;
 		this.comment = comment;
 	}
@@ -38,12 +38,12 @@ public class Ratings {
 		this.id = id;
 	}
 
-	public KeyResults getKeyResultsId() {
-		return keyResultsId;
+	public KeyResults getKeyResults() {
+		return keyResults;
 	}
 
-	public void setKeyResultsId(KeyResults keyResultsId) {
-		this.keyResultsId = keyResultsId;
+	public void setKeyResults(KeyResults keyResults) {
+		this.keyResults = keyResults;
 	}
 
 	public int getRating() {

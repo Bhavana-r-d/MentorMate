@@ -76,10 +76,6 @@ public class Users {
 		this.designation = designation;
 	}
 
-	public void setUserId(long userId) {
-		this.id = userId;
-	}
-
 	public String getPassword() {
 		return password;
 	}
