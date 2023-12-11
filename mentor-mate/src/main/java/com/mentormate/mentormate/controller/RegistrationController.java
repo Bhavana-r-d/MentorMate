@@ -1,4 +1,3 @@
-
 package com.mentormate.mentormate.controller;
  
 import java.util.Collection;
@@ -34,23 +33,22 @@ public class RegistrationController {
 	}
  
 	@PostMapping("/registration")
-	public String registerUser(@ModelAttribute User user, Model model) {
-		System.out.println(user.toString());
-		userService.createUser(new Users(user.getEmail(), user.getName(), user.getPassword(), user.getConfirmPassword(),
-				user.getRoles()));
-		model.addAttribute("message", "User Registration Successful... Please Login to Proceed.");
-		// Your registration logic
+	public String registerUser(@ModelAttribute("user") User user, Model model) {
+//		System.out.println(user.toString());
+		if(user.getPassword().equals(user.getConfirmPassword())) {
+			userService.createUser(new Users(user.getEmail(), user.getName(), user.getPassword(), user.getConfirmPassword(),
+					user.getRoles()));
+			return "redirect:/login";
+			
+		}
+		else {
+			model.addAttribute("message","Password did not match");
+			return "registration";
+		}
 		
-//		   // Validate password matching
-//        if (!user.getPassword().equals(user.getConfirmPassword())) {
-//            model.addAttribute("error", "Passwords do not match");
-//            return "registration";
-//        }
-//
-//        // Your other registration logic here
-//        userService.registerUser(user);
 
-		return "redirect:/login";
+		// Your registration logic
+
 		
 	}
 //	@ModelAttribute("user")
@@ -68,4 +66,3 @@ public class RegistrationController {
 		return "login";
 	}
 }
- 

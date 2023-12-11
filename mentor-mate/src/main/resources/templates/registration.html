@@ -2,56 +2,44 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
-     <!-- Add a script for password matching validation -->
-    <script>
-        function validatePassword() {
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Registration</title>
 
-            if (password !== confirmPassword) {
-                alert("Passwords do not match");
-                return false;
-            }
-            return true;
-        }
-    </script>
-    
 </head>
 
 <body>
-    <h2>Registration</h2>
- 
-    <form method="post" th:action="@{/registration}" onsubmit="return validatePassword()" th:object="${user}">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" th:required="required">
-        <br/>
- 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" th:required="required">
-        <br/>
- 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" th:required="required">
-        <br/>
- 
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirm_password" name="confirm_password" th:required="required">
-        <br/>
- 
-        <label for="roles">Roles:</label>
-        <select id="roles" name="roles" th:required="required">
-            <option value="ROLE_MENTOR">Mentor</option>
-            <option value="ROLE_MENTEE">Mentee</option>
-        </select>
-        <br/>
- 
-        <button type="submit">Register</button>
-    </form>
- 
+	<h2>Registration</h2>
+
+	<form method="post" th:action="@{/registration}" th:object="${user}">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" th:required="required">
+		<br />
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" th:required="required">
+		<br />
+
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" th:required="required">
+		<br />
+
+		<label for="confirmPassword">Confirm Password:</label>
+		<input type="password" id="confirmPassword" name="confirmPassword" th:required="required">
+		<br />
+
+		<label for="roles">Roles:</label>
+		<select id="roles" name="roles" th:required="required">
+			<option value="ROLE_MENTOR">Mentor</option>
+			<option value="ROLE_MENTEE">Mentee</option>
+		</select>
+		<br />
+
+		<button type="submit">Register</button>
+		<h3 th:text=${message}></h3>
+	</form>
+
 </body>
 
 </html>
