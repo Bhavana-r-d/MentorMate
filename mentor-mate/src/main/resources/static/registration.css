@@ -1,0 +1,73 @@
+@charset "ISO-8859-1";
+
+/* Container styling */
+.container {
+	height: 100vh;
+	width: 1000vh;
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+	background-image: url('/bg-img.jpg');
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	/* Fixed background position while scrolling */
+	color: #fff;
+	background-color: white;
+
+}
+
+/* Heading styling */
+.registration-heading {
+	color: #333;
+	/* Set text color */
+}
+
+/* Form styling */
+.registration-form {
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form input styling */
+.form-group {
+	margin-bottom: 16px;
+}
+
+.form-label {
+	display: block;
+	margin-bottom: 8px;
+	color: #333;
+	/* Set label text color */
+}
+
+.form-input,
+.form-select {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color: #333;
+	/* Set text color */
+}
+
+/* Button styling */
+.btn-register {
+	background-color: #4caf50;
+	color: #fff;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.btn-register:hover {
+	background-color: #45a049;
+}

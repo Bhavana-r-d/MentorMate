@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="registration.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="registration-heading">Registration</h2>
+
+        <form class="registration-form" method="post" th:action="@{/registration}">
+            <div class="form-group">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" id="name" name="name" class="form-input" th:required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" id="email" name="email" class="form-input" th:required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" name="password" class="form-input" th:required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" class="form-input" th:required="required">
+            </div>
+
+            <div class="form-group">
+                <label for="roles" class="form-label">Roles:</label>
+                <select id="roles" name="roles" class="form-select" th:required="required">
+                    <option value="ROLE_MENTOR">Mentor</option>
+                    <option value="ROLE_MENTEE">Mentee</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn-register">Register</button>
+        </form>
+    </div>
+</body>
+
+</html>
+
