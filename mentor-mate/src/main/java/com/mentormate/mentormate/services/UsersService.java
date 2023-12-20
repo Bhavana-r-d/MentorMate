@@ -1,18 +1,23 @@
 package com.mentormate.mentormate.services;
 
 import java.util.List;
-
+import javax.management.relation.RoleNotFoundException;
 import com.mentormate.mentormate.entities.Users;
+import com.mentormate.mentormate.models.UsersModel;
 
 public interface UsersService {
 
-	Users createUsers(Users user);
+	// Get all users from the database
+	List<Users> getAllUsers();
+	// Create a new user based on the provided user model
+	// Throws RoleNotFoundException if the specified role is not found
+	Users createUsers(UsersModel usersModel) throws RoleNotFoundException;
 
-	Users updateUsers(Users user);
+	boolean isUserExists(String email);
+
+	Users findByEmail(String username);
+
+	Users updateUsers(UsersModel usersModel);
 
 	Users getUserById(long userId);
-
-	List<Users> getAll();
-
-
 }

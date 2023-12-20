@@ -9,58 +9,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "mentorMenteeRelationship")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class MentorMenteeRelationship {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "mentorId",referencedColumnName = "id")
-	private Users mentorId;
-	
-	@ManyToOne(targetEntity = Users.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "menteeId",referencedColumnName = "id")
-	private Users menteeId;
 
-	public MentorMenteeRelationship() {
+	@ManyToOne(targetEntity = Users.class, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinColumn(name = "mentorId", referencedColumnName = "id")
+	private Users mentor;
+
+	@ManyToOne(targetEntity = Users.class, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinColumn(name = "menteeId", referencedColumnName = "id")
+	private Users mentee;
+
+	public MentorMenteeRelationship(Users mentor, Users mentee) {
+		this.mentor = mentor;
+		this.mentee = mentee;
 	}
 
-	public MentorMenteeRelationship(long id, Users mentorId, Users menteeId) {
-		this.id = id;
-		this.mentorId = mentorId;
-		this.menteeId = menteeId;
-	}
-
-	public MentorMenteeRelationship(Users mentorId, Users menteeId) {
-		this.mentorId = mentorId;
-		this.menteeId = menteeId;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public Users getMentorId() {
-		return mentorId;
-	}
-
-	public void setMentorId(Users mentorId) {
-		this.mentorId = mentorId;
-	}
-
-	public Users getMenteeId() {
-		return menteeId;
-	}
-
-	public void setMenteeId(Users menteeId) {
-		this.menteeId = menteeId;
-	}
-	
 }

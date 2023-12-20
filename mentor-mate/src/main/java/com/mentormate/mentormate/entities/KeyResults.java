@@ -9,46 +9,29 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "keyResults")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class KeyResults {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@ManyToOne(targetEntity = OKRs.class,cascade = {CascadeType.ALL},fetch = FetchType.EAGER)
-	@JoinColumn(name = "okrId",referencedColumnName = "id")
-	private OKRs okrId;
+	@ManyToOne(targetEntity = Objectives.class, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinColumn(name = "objectivesId", referencedColumnName = "id")
+	private Objectives objective;
 	private String keyResult;
-	public KeyResults() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public KeyResults( OKRs okrId, String keyResult) {
-		this.okrId = okrId;
+
+	public KeyResults(Objectives objective, String keyResult) {
+		this.objective = objective;
 		this.keyResult = keyResult;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public OKRs getOkrId() {
-		return okrId;
-	}
-
-	public void setOkrId(OKRs okrId) {
-		this.okrId = okrId;
-	}
-
-	public String getKeyResult() {
-		return keyResult;
-	}
-	public void setKeyResult(String keyResult) {
-		this.keyResult = keyResult;
-	}
 }

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	
+	<link rel="stylesheet" th:href="@{/css/mentor-stylesheet.css}" />
+	<meta charset="ISO-8859-1">
+	<title>Mentor</title>
+</head>
+
+<body>
+
+		<h1>Mentor Dashboard</h1>
+
+	<div class="profile-section">
+		<h3>Welcome, <span th:text="${firstName}"></span>! </h3>
+	</div>
+	
+	
+	<!-- Button to show pop-up -->
+	<button id="profileBtn" class="btn btn-success">My Profile</button>
+
+	
+	<div id="myProfile" class="profile" th:each="e : ${mentor}" >
+
+  		<!-- Profile information -->
+  		<div class="profile-info" style="padding: 10px; width: 20%;">
+	  
+		<!--close button-->
+    	<span class="close">×</span>
+        <tr>
+            <p th:text="'First Name: ' + ${e.firstName}"></p>
+        </tr>
+        <tr>
+            <p th:text="'Last Name: ' + ${e.lastName}"></p>
+        </tr>
+        <tr>
+            <p th:text="'Email: ' + ${e.email}"></p>
+        </tr>
+        <tr>
+            <p th:text="'Designation: ' + ${e.designation}"></p>
+        </tr>
+        <tr>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8AJM9wkP__z2M-hovSAWcTb_9XJ6smy3NKw&usqp=CAU" alt="Profile Pic" style="width: 200px; height: 200px; border: 1px solid #ccc; border-radius: 5px;">
+        </tr>
+  		</div>
+
+	</div>
+	
+	<button onclick="openModal()" class="btn btn-success">Add OKRs</button>
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<span class="close" onclick="closeModal()">&times;</span>
+			<h2 style="color: #333; text-align: center;">Add OKRs for Mentee</h2>
+			<!-- Form for adding objectives and key results -->
+			<form action="#" th:action="@{/save}" th:object="${okrForm}" method="post">
+				<label for="objective" style="display: block; margin-top: 10px;">Objective:</label>
+				<input type="text" id="objective" name="objective"
+					style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" />
+				<br />
+				<label for="keyResult1" style="display: block; margin-top: 10px;">Key Result 1:</label>
+				<input type="text" id="keyResult1" name="keyResult1"
+					style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" /><br />
+				<br />
+				<label for="keyResult2" style="display: block; margin-top: 10px;">Key Result 2:</label>
+				<input type="text" id="keyResult2" name="keyResult2"
+					style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" /><br />
+				<br />
+				<input type="submit" value="Save Objectives"
+					style="background-color: #4caf50; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 5px;" />
+			</form>
+		</div>
+	</div>
+		
+
+	<script th:inline="javascript">
+		// Get the pop-up
+		var profile = document.getElementById("myProfile");
+
+		// Get the button that opens the pop-up
+		var btn = document.getElementById("profileBtn");
+
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the pop-up
+		btn.onclick = function() {
+  		profile.style.display = "block";
+		}
+
+		// When the user clicks on (x), close the pop-up
+		span.onclick = function() {
+		  profile.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the pop-up, close it
+		window.onclick = function(event) {
+		  if (event.target == profile) {
+		    profile.style.display = "none";
+		  }
+		}
+
+		function openModal() {
+			document.getElementById('myModal').style.display = 'block';
+		}
+		
+		function closeModal() {
+			document.getElementById('myModal').style.display = 'none';
+		}
+</script>
+
+</body>
+
+</html>

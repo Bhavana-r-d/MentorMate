@@ -8,41 +8,27 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Comments {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
 	@ManyToOne(targetEntity = KeyResults.class, cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinColumn(name = "keyResultsId",referencedColumnName = "id")
-	private KeyResults keyResultsId;
-	private String comments;
-	public Comments() {
-		// TODO Auto-generated constructor stub
+	@JoinColumn(name = "keyResultsId", referencedColumnName = "id")
+	private KeyResults keyResults;
+	private String comment;
+
+	public Comments(KeyResults keyResults, String comment) {
+		this.keyResults = keyResults;
+		this.comment = comment;
 	}
-	public Comments(KeyResults keyResultsId, String comments) {
-		this.keyResultsId = keyResultsId;
-		this.comments = comments;
-	}
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-	public KeyResults getKeyResultsId() {
-		return keyResultsId;
-	}
-	public void setKeyResultsId(KeyResults keyResultsId) {
-		this.keyResultsId = keyResultsId;
-	}
-	public String getComments() {
-		return comments;
-	}
-	public void setComments(String comments) {
-		this.comments = comments;
-	}
-	
 }

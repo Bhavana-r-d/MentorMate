@@ -9,5 +9,5 @@ public class MentorMateApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MentorMateApplication.class, args);
 	}
-
+	
 }

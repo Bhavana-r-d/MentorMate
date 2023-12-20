@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Mentee</title>
+</head>
+
+<body>
+	<h1>Mentee Dashboard</h1>
+
+
+	<div>
+		<p>Welcome, <span th:text="${firstName}"></span>!</p>
+	</div>
+	<div>
+		<!--Mentee profile-->
+		<h4>Profile</h4>
+		<!--Insert profile picture here-->
+		<p>First Name: <span th:text="${mentee.firstName}"></span></p>
+		<p>Last Name: <span th:text="${mentee.lastName}"></span></p>
+		<p>Designation: <span th:text="${mentee.designation}"></span></p>
+	</div>
+	<!--Other mentees under same mentor, add profile pictures for each user later on-->
+	<div>
+		<h4>Other Mentees: </h4>
+		<ul th:each="eachMentee : ${listOfMentees}">
+			<!--Insert profile picture here-->
+			<li th:text="${eachMentee.firstName}"></li>
+		</ul>
+	</div>
+</body>
+
+</html>

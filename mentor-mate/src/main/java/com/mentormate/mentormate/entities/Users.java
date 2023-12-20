@@ -1,91 +1,68 @@
 package com.mentormate.mentormate.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Users {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private String password;
+	private String designation;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String email;
-    private String firstName;
-    private String lastName;
-    private String password;
-    private String designation;
-	public Users() {
-	}
-	
-	public Users(String email, String firstName, String lastName, String password, String designation) {
+	// byte array for BLOB.
+	@Lob
+	@Column(name = "profilePicture", columnDefinition = "BLOB")
+	private byte[] profilePicture;
+
+	// Collection of roles associated with the user
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
+	@Column(name = "role") // Specify the column name for roles
+	private List<String> roles;
+
+	public Users(String email, String firstName, String lastName, String password, String designation,
+			List<String> roles, byte[] profilePicture) {
 		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
 		this.designation = designation;
+		this.roles = roles;
+		this.profilePicture = profilePicture;
 	}
 
-	public Users(String email, String firstName, String lastName, String designation) {
-		this.email = email;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.designation = designation;
+	// Helper method to add a role to the roles list
+	public void addRole(String role) {
+		if (roles == null) {
+			roles = new ArrayList<String>();
+		}
+		roles.add(role);
 	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getDesignation() {
-		return designation;
-	}
-
-	public void setDesignation(String designation) {
-		this.designation = designation;
-	}
-
-	public void setUserId(long userId) {
-		this.id = userId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 
 }
